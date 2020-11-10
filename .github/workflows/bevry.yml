@@ -1,0 +1,50 @@
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest] # macos-latest, windows-latest]
+        node: [10, 12, 14, 15]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Install with the desired Node.js version
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 14
+      - run: npm run our:setup
+      - run: npm run our:compile
+      - run: npm run our:verify
+
+      - name: Run the tests with the specific Node.js version
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
+
+  publish:
+    if: ${{ github.event_name == 'push' }}
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: 14
+      - run: npm run our:setup
+      - run: npm run our:compile
+      - run: npm run our:meta
+
+      - name: 'publish to npm'
+        run: eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/es-versions/master/.github/scripts/npm.bash)"
+        env:
+          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTHTOKEN}}
+          NPM_BRANCH_TAG: 'master:next'
+
+      - name: 'publish to surge'
+        run: eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/es-versions/master/.github/scripts/surge.bash)"
+        env:
+          SURGE_LOGIN: ${{secrets.SURGE_LOGIN}}
+          SURGE_TOKEN: ${{secrets.SURGE_TOKEN}}
