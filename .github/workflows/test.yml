@@ -1,0 +1,19 @@
+# Run on new pushed tags, commits, and pull requests
+on: [push, pull_request]
+runs-on: ${{ matrix.os }}
+strategy:
+  matrix:
+    os: [macos-latest, windows-latest, ubuntu-latest]
+    node: [10, 12, 14, 15]
+steps:
+  # Install on the desired Node.js version
+  - uses: actions/setup-node@v1
+    with:
+      node-version: 14
+  - run: npm run our:setup
+
+  # Run the tests on the specific Node.js version
+  - uses: actions/setup-node@v1
+    with:
+      node-version: ${{ matrix.node }}
+  - run: npm test
