@@ -7,10 +7,9 @@ jobs:
         node: [10, 12, 14, 15]
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Install with the desired Node.js version
+      - name: Install desired Node.js version for compilation
         uses: actions/setup-node@v2-beta
         with:
           node-version: 14
@@ -18,7 +17,7 @@ jobs:
       - run: npm run our:compile
       - run: npm run our:verify
 
-      - name: Run the tests with the specific Node.js version
+      - name: Install targeted Node.js version for testing
         uses: actions/setup-node@v2-beta
         with:
           node-version: ${{ matrix.node }}
@@ -30,18 +29,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
+
+      - name: Install desired Node.js version for publishing
+        uses: actions/setup-node@v2-beta
         with:
           node-version: 14
+
       - run: npm run our:setup
       - run: npm run our:compile
       - run: npm run our:meta
 
-      - name: 'publish to npm'
-        run: eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/es-versions/master/.github/scripts/npm.bash)"
-        env:
-          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTHTOKEN}}
-          NPM_BRANCH_TAG: 'master:next'
+      - name: publish to npm
+        uses: bevry-actions/npm@v1.0.0
+        with:
+          npmAuthToken: ${{secrets.NPM_AUTHTOKEN}}
+          npmBranchTag: 'master:next'
 
       - name: publish to surge
         uses: bevry-actions/surge@v1.0.3
