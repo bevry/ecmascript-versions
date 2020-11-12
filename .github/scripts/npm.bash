@@ -85,6 +85,7 @@ echo "creating npmrc with npm auth token..."
 echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > "$HOME/.npmrc"
 echo "logged into npm as: $(npm whoami)"
 
+# @todo simplify this, and consider making it only run on the default branch
 # check if we wish to tag the current branch
 if test -n "${NPM_BRANCH_TAG:-}"; then
 	branch="${NPM_BRANCH_TAG%:*}"
@@ -117,6 +118,7 @@ else
 	echo "no need for release to npm"
 fi
 
+# @todo consider making this its own script
 # publish to bevry cdn
 # used as an alternative to surge for documentation
 # published to npm, with docs and whatnot included in the package

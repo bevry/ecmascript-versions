@@ -43,8 +43,8 @@ jobs:
           NPM_AUTH_TOKEN: ${{secrets.NPM_AUTHTOKEN}}
           NPM_BRANCH_TAG: 'master:next'
 
-      - name: 'publish to surge'
-        run: eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/es-versions/master/.github/scripts/surge.bash)"
-        env:
-          SURGE_LOGIN: ${{secrets.SURGE_LOGIN}}
-          SURGE_TOKEN: ${{secrets.SURGE_TOKEN}}
+      - name: publish to surge
+        uses: bevry-actions/surge@v1.0.3
+        with:
+          surgeLogin: ${{secrets.SURGE_LOGIN}}
+          surgeToken: ${{secrets.SURGE_TOKEN}}
