@@ -12,8 +12,11 @@ export function datetime(when?: Date): Date {
 	return now
 }
 
-// es version dates
-// https://en.wikipedia.org/wiki/ECMAScript#Versions
+/**
+ * Tuples of ECMAScript Versions and their Ratification Dates.
+ * Sorted from oldest first to most recent last.
+ * https://en.wikipedia.org/wiki/ECMAScript#Versions
+ */
 const esVersions: Array<[version: string, ratified: Date]> = [
 	// June 1997
 	['ES1', new Date('1997-06-01')],
@@ -46,7 +49,10 @@ export function getESVersion(when: Date = now): string {
 	throw new Error(`ECMAScript did not exist on ${when}`)
 }
 
-/** Get all the ECMAScript versions that have been ratified so far. */
+/**
+ * Get all the ECMAScript versions that have been ratified so far.
+ * Sorted from oldest first to most recent last.
+ */
 export function getAllESVersions(when: Date = now): Array<string> {
 	const versions = []
 	const time = when.getTime()
