@@ -4,7 +4,7 @@ import {
 	datetime,
 	getDateWithYearOffset,
 	getESVersion,
-	getAllESVersions,
+	getESVersions,
 } from './index.js'
 
 kava.suite('es-versions', function (suite, test) {
@@ -13,7 +13,7 @@ kava.suite('es-versions', function (suite, test) {
 		equal(getESVersion(), 'ES2020')
 		equal(getESVersion(getDateWithYearOffset(-1)), 'ES2019')
 		equal(
-			getAllESVersions().join(', '),
+			getESVersions().join(', '),
 			[
 				'ES1',
 				'ES2',
@@ -33,7 +33,7 @@ kava.suite('es-versions', function (suite, test) {
 		equal(getESVersion(), 'ES2019')
 		equal(getESVersion(getDateWithYearOffset(-1)), 'ES2018')
 		equal(
-			getAllESVersions().join(', '),
+			getESVersions().join(', '),
 			[
 				'ES1',
 				'ES2',

@@ -5,8 +5,3 @@ updates:
     schedule:
       interval: weekly
       day: sunday
-  - package-ecosystem: 'github-actions'
-    directory: /
-    schedule:
-      interval: weekly
-      day: sunday
