@@ -1,6 +1,6 @@
 <!-- TITLE/ -->
 
-<h1>es-versions</h1>
+<h1>@bevry/ecmascript-versions</h1>
 
 <!-- /TITLE -->
 
@@ -35,20 +35,24 @@ Get all ECMAScript versions, or the ECMAScript version that was ratified on a sp
 
 ## Usage
 
-[Complete API Documentation.](http://master.es-versions.bevry.surge.sh/docs/globals.html)
+[Complete API Documentation.](http://master.ecmascript-versions.bevry.surge.sh/docs/globals.html)
 
 ```typescript
-import { getESVersion, getAllESVersions } from 'es-versions'
+import {
+    getESVersion,
+    getESVersions,
+    getDateWithYearOffset,
+} from '@bevry/ecmascript-versions'
 // results for 2020-11-03
 
-// get the ratified ECMAScript version for the current date
+// get the latest ECMAScript version that was ratified by current date
 console.log(getESVersion()) // ES2020
 
-// get the ratified ECMAScript version at this time last year
+// get the latest ECMAScript version that was ratified by this time last year
 console.log(getESVersion(getDateWithYearOffset(-1))) // ES2019
 
-// get all the ratified ECMAScript versions so far
-console.log(getAllESVersions()) /* [
+// get all the latest ECMAScript versions that were ratified so far
+console.log(getESVersions()) /* [
     'ES1',
     'ES2',
     'ES3',
@@ -62,30 +66,28 @@ console.log(getAllESVersions()) /* [
 ] */
 ```
 
-Want to get the Node.js versions, or get the ECMAScript version for a Node.js version? If so, refer to the [@bevry/node-versions](https://github.com/bevry/node-versions) package.
-
 <!-- INSTALL/ -->
 
 <h2>Install</h2>
 
 <a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
 <ul>
-<li>Install: <code>npm install --save es-versions</code></li>
-<li>Import: <code>import * as pkg from ('es-versions')</code></li>
-<li>Require: <code>const pkg = require('es-versions')</code></li>
+<li>Install: <code>npm install --save @bevry/ecmascript-versions</code></li>
+<li>Import: <code>import * as pkg from ('@bevry/ecmascript-versions')</code></li>
+<li>Require: <code>const pkg = require('@bevry/ecmascript-versions')</code></li>
 </ul>
 
 <a href="https://deno.land" title="Deno is a secure runtime for JavaScript and TypeScript, it is an alternative for Node.js"><h3>Deno</h3></a>
 
 ``` typescript
-import * as pkg from 'https://unpkg.com/es-versions@^1.0.0/edition-deno/index.ts'
+import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^2.0.0/edition-deno/index.ts'
 ```
 
 <a href="https://www.skypack.dev" title="Skypack is a JavaScript Delivery Network for modern web apps"><h3>Skypack</h3></a>
 
 ``` html
 <script type="module">
-    import * as pkg from '//cdn.skypack.dev/es-versions@^1.0.0'
+    import * as pkg from '//cdn.skypack.dev/@bevry/ecmascript-versions@^2.0.0'
 </script>
 ```
 
@@ -93,7 +95,7 @@ import * as pkg from 'https://unpkg.com/es-versions@^1.0.0/edition-deno/index.ts
 
 ``` html
 <script type="module">
-    import * as pkg from '//unpkg.com/es-versions@^1.0.0'
+    import * as pkg from '//unpkg.com/@bevry/ecmascript-versions@^2.0.0'
 </script>
 ```
 
@@ -101,7 +103,7 @@ import * as pkg from 'https://unpkg.com/es-versions@^1.0.0/edition-deno/index.ts
 
 ``` html
 <script type="module">
-    import * as pkg from '//dev.jspm.io/es-versions@1.0.0'
+    import * as pkg from '//dev.jspm.io/@bevry/ecmascript-versions@2.0.0'
 </script>
 ```
 
@@ -109,12 +111,12 @@ import * as pkg from 'https://unpkg.com/es-versions@^1.0.0/edition-deno/index.ts
 
 <p>This package is published with the following editions:</p>
 
-<ul><li><code>es-versions/source/index.ts</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> source code with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
-<li><code>es-versions/edition-browsers/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#10th_Edition_-_ECMAScript_2019" title="ECMAScript ES2019">ES2019</a> for web browsers with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
-<li><code>es-versions</code> aliases <code>es-versions/edition-esnext/index.js</code></li>
-<li><code>es-versions/edition-esnext/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#ES.Next" title="ECMAScript Next">ESNext</a> for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> 10 || 12 || 14 || 15 with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
-<li><code>es-versions/edition-esnext-esm/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#ES.Next" title="ECMAScript Next">ESNext</a> for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> 12 || 14 || 15 with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
-<li><code>es-versions/edition-deno/index.ts</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> source code made to be compatible with <a href="https://deno.land" title="Deno is a secure runtime for JavaScript and TypeScript, it is an alternative to Node.js">Deno</a></li></ul>
+<ul><li><code>@bevry/ecmascript-versions/source/index.ts</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> source code with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
+<li><code>@bevry/ecmascript-versions/edition-browsers/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#10th_Edition_-_ECMAScript_2019" title="ECMAScript ES2019">ES2019</a> for web browsers with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
+<li><code>@bevry/ecmascript-versions</code> aliases <code>@bevry/ecmascript-versions/edition-esnext/index.js</code></li>
+<li><code>@bevry/ecmascript-versions/edition-esnext/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#ES.Next" title="ECMAScript Next">ESNext</a> for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> 10 || 12 || 14 || 15 with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
+<li><code>@bevry/ecmascript-versions/edition-esnext-esm/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#ES.Next" title="ECMAScript Next">ESNext</a> for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> 12 || 14 || 15 with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
+<li><code>@bevry/ecmascript-versions/edition-deno/index.ts</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> source code made to be compatible with <a href="https://deno.land" title="Deno is a secure runtime for JavaScript and TypeScript, it is an alternative to Node.js">Deno</a></li></ul>
 
 <!-- /INSTALL -->
 
