@@ -69,9 +69,10 @@ esVersionsByEdition.set(5, {
 })
 // ES5.1 doesn't count
 // Add the `ES${year}` versions which are ratified in June
+// Certain APIs like Node.green go into the future, so add a year or two.
 for (
 	let year = 2015, edition = 6;
-	year <= now.getFullYear();
+	year <= now.getFullYear() + 2;
 	year++, edition++
 ) {
 	esVersionsByEdition.set(edition, {

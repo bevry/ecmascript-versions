@@ -1,5 +1,9 @@
 # History
 
+## v3.2.0 2021 July 28
+
+-   Go two years into the future for prepping ECMAScript version information, as certain APIs like Node.green go into the future, as used by [`@bevry/nodejs-ecmascript-compatibility`](https://github.com/bevry/nodejs-ecmascript-compatibility)
+
 ## v3.1.1 2021 July 27
 
 -   Seems npm lost the last package, so republish.
