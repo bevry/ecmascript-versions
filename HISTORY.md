@@ -1,5 +1,9 @@
 # History
 
+## v2.0.1 2021 July 27
+
+-   ES5 edition number was incorrectly set to `4`, it is now `5`
+
 ## v2.0.0 2021 July 26
 
 -   Renamed from `es-versions` to `@bevry/ecmascript-versions`, to coincide with the revamped packages

@@ -62,12 +62,14 @@ esVersionMap.set(3, {
 	ratified: new Date('1999-12-01'),
 	edition: 3,
 })
+// ES4 was abandoned
 // December 2009
-esVersionMap.set(4, {
+esVersionMap.set(5, {
 	version: 'ES5',
 	ratified: new Date('2009-12-01'),
-	edition: 4,
+	edition: 5,
 })
+// ES5.1 doesn't count
 // Add the `ES${year}` versions which are ratified in June
 for (
 	let year = 2015, edition = 6;
