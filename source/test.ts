@@ -3,17 +3,24 @@ import kava from 'kava'
 import {
 	datetime,
 	getDateWithYearOffset,
-	getESVersion,
-	getESVersions,
+	getESVersionInformationByEdition,
+	getESVersionInformationByVersion,
+	getESVersionByNow,
+	getESVersionByDate,
+	getESVersionsByNow,
 } from './index.js'
 
 kava.suite('es-versions', function (suite, test) {
+	test('es5 is 5', function () {
+		equal(getESVersionInformationByEdition(5).edition, 5)
+		equal(getESVersionInformationByVersion('ES5').edition, 5)
+	})
 	test('2020 November works as expected', function () {
 		datetime(new Date('2020-11-03'))
-		equal(getESVersion(), 'ES2020')
-		equal(getESVersion(getDateWithYearOffset(-1)), 'ES2019')
+		equal(getESVersionByNow(), 'ES2020')
+		equal(getESVersionByDate(getDateWithYearOffset(-1)), 'ES2019')
 		equal(
-			getESVersions().join(', '),
+			getESVersionsByNow().join(', '),
 			[
 				'ES1',
 				'ES2',
@@ -30,10 +37,10 @@ kava.suite('es-versions', function (suite, test) {
 	})
 	test('2020 March works as expected', function () {
 		datetime(new Date('2020-03-03'))
-		equal(getESVersion(), 'ES2019')
-		equal(getESVersion(getDateWithYearOffset(-1)), 'ES2018')
+		equal(getESVersionByNow(), 'ES2019')
+		equal(getESVersionByDate(getDateWithYearOffset(-1)), 'ES2018')
 		equal(
-			getESVersions().join(', '),
+			getESVersionsByNow().join(', '),
 			[
 				'ES1',
 				'ES2',

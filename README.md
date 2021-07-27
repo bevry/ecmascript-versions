@@ -39,20 +39,27 @@ Get all ECMAScript versions, or the ECMAScript version that was ratified on a sp
 
 ```typescript
 import {
-    getESVersion,
-    getESVersions,
-    getDateWithYearOffset,
+    getESVersionInformationByVersion,
+    getESVersionByNow,
+    getESVersionByDate,
+    getESVersionsByNow,
 } from '@bevry/ecmascript-versions'
 // results for 2020-11-03
 
+// get the ratification date for an ECMAScript version
+console.log(getESVersionInformationByVersion('ES2020').ratified) // 2020-06-01T00:00:00.000Z
+
+// get the edition number for an ECMAScript version
+console.log(getESVersionInformationByVersion('ES2020').edition) // 11
+
 // get the latest ECMAScript version that was ratified by current date
-console.log(getESVersion()) // ES2020
+console.log(getESVersionByNow()) // ES2020
 
 // get the latest ECMAScript version that was ratified by this time last year
-console.log(getESVersion(getDateWithYearOffset(-1))) // ES2019
+console.log(getESVersionByDate(getDateWithYearOffset(-1))) // ES2019
 
 // get all the latest ECMAScript versions that were ratified so far
-console.log(getESVersions()) /* [
+console.log(getESVersionsByNow()) /* [
     'ES1',
     'ES2',
     'ES3',
@@ -80,14 +87,14 @@ console.log(getESVersions()) /* [
 <a href="https://deno.land" title="Deno is a secure runtime for JavaScript and TypeScript, it is an alternative for Node.js"><h3>Deno</h3></a>
 
 ``` typescript
-import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^2.0.1/edition-deno/index.ts'
+import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^3.0.0/edition-deno/index.ts'
 ```
 
 <a href="https://www.skypack.dev" title="Skypack is a JavaScript Delivery Network for modern web apps"><h3>Skypack</h3></a>
 
 ``` html
 <script type="module">
-    import * as pkg from '//cdn.skypack.dev/@bevry/ecmascript-versions@^2.0.1'
+    import * as pkg from '//cdn.skypack.dev/@bevry/ecmascript-versions@^3.0.0'
 </script>
 ```
 
@@ -95,7 +102,7 @@ import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^2.0.1/editio
 
 ``` html
 <script type="module">
-    import * as pkg from '//unpkg.com/@bevry/ecmascript-versions@^2.0.1'
+    import * as pkg from '//unpkg.com/@bevry/ecmascript-versions@^3.0.0'
 </script>
 ```
 
@@ -103,7 +110,7 @@ import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^2.0.1/editio
 
 ``` html
 <script type="module">
-    import * as pkg from '//dev.jspm.io/@bevry/ecmascript-versions@2.0.1'
+    import * as pkg from '//dev.jspm.io/@bevry/ecmascript-versions@3.0.0'
 </script>
 ```
 

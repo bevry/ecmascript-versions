@@ -1,5 +1,10 @@
 # History
 
+## v3.0.0 2021 July 27
+
+-   Fetching by what criteria is now explicit
+-   Added the ability to fetch information by the version identifier
+
 ## v2.0.1 2021 July 27
 
 -   ES5 edition number was incorrectly set to `4`, it is now `5`
