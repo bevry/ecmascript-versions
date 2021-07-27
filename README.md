@@ -7,11 +7,11 @@
 
 <!-- BADGES/ -->
 
-<span class="badge-githubworkflow"><a href="https://github.com/bevry/es-versions/actions?query=workflow%3Abevry" title="View the status of this project's GitHub Workflow: bevry"><img src="https://github.com/bevry/es-versions/workflows/bevry/badge.svg" alt="Status of the GitHub Workflow: bevry" /></a></span>
+<span class="badge-githubworkflow"><a href="https://github.com/bevry/ecmascript-versions/actions?query=workflow%3Abevry" title="View the status of this project's GitHub Workflow: bevry"><img src="https://github.com/bevry/ecmascript-versions/workflows/bevry/badge.svg" alt="Status of the GitHub Workflow: bevry" /></a></span>
 <span class="badge-npmversion"><a href="https://npmjs.org/package/@bevry/ecmascript-versions" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@bevry/ecmascript-versions.svg" alt="NPM version" /></a></span>
 <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@bevry/ecmascript-versions" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@bevry/ecmascript-versions.svg" alt="NPM downloads" /></a></span>
-<span class="badge-daviddm"><a href="https://david-dm.org/bevry/es-versions" title="View the status of this project's dependencies on DavidDM"><img src="https://img.shields.io/david/bevry/es-versions.svg" alt="Dependency Status" /></a></span>
-<span class="badge-daviddmdev"><a href="https://david-dm.org/bevry/es-versions#info=devDependencies" title="View the status of this project's development dependencies on DavidDM"><img src="https://img.shields.io/david/dev/bevry/es-versions.svg" alt="Dev Dependency Status" /></a></span>
+<span class="badge-daviddm"><a href="https://david-dm.org/bevry/ecmascript-versions" title="View the status of this project's dependencies on DavidDM"><img src="https://img.shields.io/david/bevry/ecmascript-versions.svg" alt="Dependency Status" /></a></span>
+<span class="badge-daviddmdev"><a href="https://david-dm.org/bevry/ecmascript-versions#info=devDependencies" title="View the status of this project's development dependencies on DavidDM"><img src="https://img.shields.io/david/dev/bevry/ecmascript-versions.svg" alt="Dev Dependency Status" /></a></span>
 <br class="badge-separator" />
 <span class="badge-githubsponsors"><a href="https://github.com/sponsors/balupton" title="Donate to this project using GitHub Sponsors"><img src="https://img.shields.io/badge/github-donate-yellow.svg" alt="GitHub Sponsors donate button" /></a></span>
 <span class="badge-patreon"><a href="https://patreon.com/bevry" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
@@ -87,14 +87,14 @@ console.log(getESVersionsByNow()) /* [
 <a href="https://deno.land" title="Deno is a secure runtime for JavaScript and TypeScript, it is an alternative for Node.js"><h3>Deno</h3></a>
 
 ``` typescript
-import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^3.2.0/edition-deno/index.ts'
+import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^3.3.0/edition-deno/index.ts'
 ```
 
 <a href="https://www.skypack.dev" title="Skypack is a JavaScript Delivery Network for modern web apps"><h3>Skypack</h3></a>
 
 ``` html
 <script type="module">
-    import * as pkg from '//cdn.skypack.dev/@bevry/ecmascript-versions@^3.2.0'
+    import * as pkg from '//cdn.skypack.dev/@bevry/ecmascript-versions@^3.3.0'
 </script>
 ```
 
@@ -102,7 +102,7 @@ import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^3.2.0/editio
 
 ``` html
 <script type="module">
-    import * as pkg from '//unpkg.com/@bevry/ecmascript-versions@^3.2.0'
+    import * as pkg from '//unpkg.com/@bevry/ecmascript-versions@^3.3.0'
 </script>
 ```
 
@@ -110,7 +110,7 @@ import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^3.2.0/editio
 
 ``` html
 <script type="module">
-    import * as pkg from '//dev.jspm.io/@bevry/ecmascript-versions@3.2.0'
+    import * as pkg from '//dev.jspm.io/@bevry/ecmascript-versions@3.3.0'
 </script>
 ```
 
@@ -120,9 +120,9 @@ import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^3.2.0/editio
 
 <ul><li><code>@bevry/ecmascript-versions/source/index.ts</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> source code with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
 <li><code>@bevry/ecmascript-versions/edition-browsers/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#11th_Edition_–_ECMAScript_2020" title="ECMAScript ES2020">ES2020</a> for web browsers with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
-<li><code>@bevry/ecmascript-versions</code> aliases <code>@bevry/ecmascript-versions/edition-es2020/index.js</code></li>
-<li><code>@bevry/ecmascript-versions/edition-es2020/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#11th_Edition_–_ECMAScript_2020" title="ECMAScript ES2020">ES2020</a> for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> 10 || 12 || 14 with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
-<li><code>@bevry/ecmascript-versions/edition-es2020-esm/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#11th_Edition_–_ECMAScript_2020" title="ECMAScript ES2020">ES2020</a> for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> 12 || 14 with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
+<li><code>@bevry/ecmascript-versions</code> aliases <code>@bevry/ecmascript-versions/edition-es2019/index.js</code></li>
+<li><code>@bevry/ecmascript-versions/edition-es2019/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#10th_Edition_-_ECMAScript_2019" title="ECMAScript ES2019">ES2019</a> for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> 10 || 12 || 14 with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
+<li><code>@bevry/ecmascript-versions/edition-es2019-esm/index.js</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> compiled against <a href="https://en.wikipedia.org/wiki/ECMAScript#10th_Edition_-_ECMAScript_2019" title="ECMAScript ES2019">ES2019</a> for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> 12 || 14 with <a href="https://babeljs.io/docs/learn-es2015/#modules" title="ECMAScript Modules">Import</a> for modules</li>
 <li><code>@bevry/ecmascript-versions/edition-deno/index.ts</code> is <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a> source code made to be compatible with <a href="https://deno.land" title="Deno is a secure runtime for JavaScript and TypeScript, it is an alternative to Node.js">Deno</a></li></ul>
 
 <!-- /INSTALL -->
@@ -132,7 +132,7 @@ import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^3.2.0/editio
 
 <h2>History</h2>
 
-<a href="https://github.com/bevry/es-versions/blob/master/HISTORY.md#files">Discover the release history by heading on over to the <code>HISTORY.md</code> file.</a>
+<a href="https://github.com/bevry/ecmascript-versions/blob/master/HISTORY.md#files">Discover the release history by heading on over to the <code>HISTORY.md</code> file.</a>
 
 <!-- /HISTORY -->
 
@@ -141,7 +141,7 @@ import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^3.2.0/editio
 
 <h2>Contribute</h2>
 
-<a href="https://github.com/bevry/es-versions/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
+<a href="https://github.com/bevry/ecmascript-versions/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
 <!-- /CONTRIBUTE -->
 
@@ -154,7 +154,7 @@ import * as pkg from 'https://unpkg.com/@bevry/ecmascript-versions@^3.2.0/editio
 
 These amazing people are maintaining this project:
 
-<ul><li><a href="https://github.com/balupton">Benjamin Lupton</a> — <a href="https://github.com/bevry/es-versions/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/es-versions">view contributions</a></li></ul>
+<ul><li><a href="https://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/ecmascript-versions/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/ecmascript-versions">view contributions</a></li></ul>
 
 <h3>Sponsors</h3>
 
@@ -172,9 +172,11 @@ No sponsors yet! Will you be the first?
 
 <h3>Contributors</h3>
 
-No contributors yet! Will you be the first?
+These amazing people have contributed code to this project:
 
-<a href="https://github.com/bevry/es-versions/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
+<ul><li><a href="https://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/ecmascript-versions/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/ecmascript-versions">view contributions</a></li></ul>
+
+<a href="https://github.com/bevry/ecmascript-versions/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
 <!-- /BACKERS -->
 
@@ -185,7 +187,7 @@ No contributors yet! Will you be the first?
 
 Unless stated otherwise all works are:
 
-<ul><li>Copyright &copy; 2020+ <a href="https://github.com/balupton">Benjamin Lupton</a></li></ul>
+<ul><li>Copyright &copy; 2020+ <a href="https://balupton.com">Benjamin Lupton</a></li></ul>
 
 and licensed under:
 

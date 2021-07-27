@@ -1,5 +1,9 @@
 # History
 
+## v3.3.0 2021 July 28
+
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+
 ## v3.2.0 2021 July 28
 
 -   Go two years into the future for prepping ECMAScript version information, as certain APIs like Node.green go into the future, as used by [`@bevry/nodejs-ecmascript-compatibility`](https://github.com/bevry/nodejs-ecmascript-compatibility)
