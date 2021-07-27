@@ -1,5 +1,10 @@
 # History
 
+## v3.1.0 2021 July 27
+
+-   Added `sort*` and `compare*` functions
+-   Results from `getESVersionsInformationByVersion` are now sorted
+
 ## v3.0.0 2021 July 27
 
 -   Fetching by what criteria is now explicit

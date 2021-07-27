@@ -1,4 +1,4 @@
-import { equal } from 'assert-helpers'
+import { equal, deepEqual } from 'assert-helpers'
 import kava from 'kava'
 import {
 	datetime,
@@ -8,12 +8,21 @@ import {
 	getESVersionByNow,
 	getESVersionByDate,
 	getESVersionsByNow,
+	sortESVersionIdentifiers,
+	getESVersionsInformationByVersion,
 } from './index.js'
 
 kava.suite('es-versions', function (suite, test) {
 	test('es5 is 5', function () {
 		equal(getESVersionInformationByEdition(5).edition, 5)
 		equal(getESVersionInformationByVersion('ES5').edition, 5)
+	})
+	test('sorting works as expected', function () {
+		deepEqual(sortESVersionIdentifiers(['ES2021', 'ES5']), ['ES5', 'ES2021'])
+		deepEqual(getESVersionsInformationByVersion(['ES2021', 'ES5']), [
+			{ version: 'ES5', ratified: new Date('2009-12-01'), edition: 5 },
+			{ version: 'ES2021', ratified: new Date('2021-06-01'), edition: 12 },
+		])
 	})
 	test('2020 November works as expected', function () {
 		datetime(new Date('2020-11-03'))

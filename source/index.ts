@@ -39,7 +39,7 @@ export type ESVersionInformation = {
 
 /**
  * ECMAScript version information mapped by the edition number.
- * Sorted from oldest first to most recent last.
+ * Sorted from oldest ratification date first.
  */
 const esVersionsByEdition: Map<Number, ESVersionInformation> = new Map()
 // June 1997
@@ -83,16 +83,50 @@ for (
 
 /**
  * ECMAScript version information as an array.
- * Sorted from oldest first to most recent last.
+ * Sorted from oldest ratification date first.
  */
 const esVersionList = Array.from(esVersionsByEdition.values())
 
 /**
  * ECMAScript version information mapped by the version identifier.
- * Sorted from oldest first to most recent last.
+ * Sorted from oldest ratification date first.
  */
 const esVersionsByVersion: Map<ESVersionIdentifier, ESVersionInformation> =
 	new Map(esVersionList.map((v) => [v.version, v]))
+
+// ------------------------------------
+// Helpers
+
+/** Sort the ECMAScript version information by oldest ratification date first. */
+export function compareESVersionInformation(
+	a: ESVersionInformation,
+	b: ESVersionInformation
+): number {
+	return a.ratified.getTime() - b.ratified.getTime()
+}
+
+/** Sort the ECMAScript version identifiers by oldest ratification date first. */
+export function compareESVersionIdentifier(
+	a: ESVersionIdentifier,
+	b: ESVersionIdentifier
+): number {
+	return compareESVersionInformation(
+		getESVersionInformationByVersion(a),
+		getESVersionInformationByVersion(b)
+	)
+}
+
+/** Sort the ECMAScript version identifiers by oldest ratification date first. */
+export function sortESVersionIdentifiers(versions: Array<ESVersionIdentifier>) {
+	return versions.sort(compareESVersionIdentifier)
+}
+
+/** Sort the ECMAScript version information by oldest ratification date first. */
+export function sortESVersionInformation(
+	versions: Array<ESVersionInformation>
+) {
+	return versions.sort(compareESVersionInformation)
+}
 
 // ------------------------------------
 // By Version
@@ -107,12 +141,14 @@ export function getESVersionInformationByVersion(
 
 /**
  * Get all the associated ECMAScript version information for the version identifiers.
- * Sorted from oldest first to most recent last.
+ * Sorted from oldest ratification date first.
  */
 export function getESVersionsInformationByVersion(
 	versions: Array<ESVersionIdentifier>
 ): Array<ESVersionInformation> {
-	return versions.map((version) => getESVersionInformationByVersion(version))
+	return versions
+		.map((version) => getESVersionInformationByVersion(version))
+		.sort(compareESVersionInformation)
 }
 
 // ------------------------------------
@@ -120,7 +156,7 @@ export function getESVersionsInformationByVersion(
 
 /**
  * Get all the ECMAScript versions that have been ratified by the specified datetime.
- * Sorted from oldest first to most recent last.
+ * Sorted from oldest ratification date first.
  */
 export function getESVersionsInformationByDate(
 	when: Date
@@ -135,7 +171,7 @@ export function getESVersionsInformationByDate(
 
 /**
  * Get all the ECMAScript versions that have been ratified by the specified datetime.
- * Sorted from oldest first to most recent last.
+ * Sorted from oldest ratification date first.
  */
 export function getESVersionsByDate(when: Date): Array<ESVersionIdentifier> {
 	return getESVersionsInformationByDate(when).map((meta) => meta.version)
@@ -158,7 +194,7 @@ export function getESVersionByDate(when: Date = now): string {
 
 /**
  * Get all the ECMAScript versions that have been ratified by the current datetime, or {@link datetime}.
- * Sorted from oldest first to most recent last.
+ * Sorted from oldest ratification date first.
  */
 export function getESVersionsInformationByNow() {
 	return getESVersionsInformationByDate(now)
@@ -166,7 +202,7 @@ export function getESVersionsInformationByNow() {
 
 /**
  * Get all the ECMAScript versions that have been ratified by the current datetime, or {@link datetime}.
- * Sorted from oldest first to most recent last.
+ * Sorted from oldest ratification date first.
  */
 export function getESVersionsByNow() {
 	return getESVersionsByDate(now)
