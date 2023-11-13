@@ -41,7 +41,7 @@ kava.suite('es-versions', function (suite, test) {
 				'ES2018',
 				'ES2019',
 				'ES2020',
-			].join(', '),
+			].join(', ')
 		)
 	})
 	test('2020 March works as expected', function () {
@@ -60,7 +60,7 @@ kava.suite('es-versions', function (suite, test) {
 				'ES2017',
 				'ES2018',
 				'ES2019',
-			].join(', '),
+			].join(', ')
 		)
 	})
 })

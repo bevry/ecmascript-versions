@@ -101,7 +101,7 @@ const esVersionsByVersion: Map<ESVersionIdentifier, ESVersionInformation> =
 /** Sort the ECMAScript version information by oldest ratification date first. */
 export function compareESVersionInformation(
 	a: ESVersionInformation,
-	b: ESVersionInformation,
+	b: ESVersionInformation
 ): number {
 	return a.ratified.getTime() - b.ratified.getTime()
 }
@@ -109,11 +109,11 @@ export function compareESVersionInformation(
 /** Sort the ECMAScript version identifiers by oldest ratification date first. */
 export function compareESVersionIdentifier(
 	a: ESVersionIdentifier,
-	b: ESVersionIdentifier,
+	b: ESVersionIdentifier
 ): number {
 	return compareESVersionInformation(
 		getESVersionInformationByVersion(a),
-		getESVersionInformationByVersion(b),
+		getESVersionInformationByVersion(b)
 	)
 }
 
@@ -124,7 +124,7 @@ export function sortESVersionIdentifiers(versions: Array<ESVersionIdentifier>) {
 
 /** Sort the ECMAScript version information by oldest ratification date first. */
 export function sortESVersionInformation(
-	versions: Array<ESVersionInformation>,
+	versions: Array<ESVersionInformation>
 ) {
 	return versions.sort(compareESVersionInformation)
 }
@@ -134,7 +134,7 @@ export function sortESVersionInformation(
 
 /** Get the associated ECMAScript version information for the version identifier. */
 export function getESVersionInformationByVersion(
-	version: ESVersionIdentifier,
+	version: ESVersionIdentifier
 ): ESVersionInformation {
 	if (esVersionsByVersion.has(version)) return esVersionsByVersion.get(version)!
 	throw new Error(`ECMAScript version was not found: ${version}`)
@@ -145,7 +145,7 @@ export function getESVersionInformationByVersion(
  * Sorted from oldest ratification date first.
  */
 export function getESVersionsInformationByVersion(
-	versions: Array<ESVersionIdentifier>,
+	versions: Array<ESVersionIdentifier>
 ): Array<ESVersionInformation> {
 	return versions
 		.map((version) => getESVersionInformationByVersion(version))
@@ -160,11 +160,11 @@ export function getESVersionsInformationByVersion(
  * Sorted from oldest ratification date first.
  */
 export function getESVersionsInformationByDate(
-	when: Date,
+	when: Date
 ): Array<ESVersionInformation> {
 	const time = when.getTime()
 	const results = esVersionList.filter(
-		(meta) => time >= meta.ratified.getTime(),
+		(meta) => time >= meta.ratified.getTime()
 	)
 	if (results.length) return results
 	throw new Error(`ECMAScript did not exist by ${when}`)
@@ -180,7 +180,7 @@ export function getESVersionsByDate(when: Date): Array<ESVersionIdentifier> {
 
 /** Get the latest ECMAScript version information that was the ratified by the specified datetime. */
 export function getESVersionInformationByDate(
-	when: Date,
+	when: Date
 ): ESVersionInformation {
 	return getESVersionsInformationByDate(when).slice(-1)[0]
 }
@@ -224,7 +224,7 @@ export function getESVersionByNow(): string {
 
 /** Get the ECMAScript version information by the edition number. */
 export function getESVersionInformationByEdition(
-	edition: Number,
+	edition: Number
 ): ESVersionInformation {
 	const meta = esVersionsByEdition.get(edition)
 	if (meta) return meta
